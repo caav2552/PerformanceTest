@@ -9,6 +9,7 @@ The exercise mentioned `/auth/login`, but that endpoint is not available in Fake
 So I used `/api/v1/Activities` to run the test.
 
 The requirements are still covered:
+
 - ~20 TPS
 - response time < 1.5s
 - error rate < 3%
@@ -24,6 +25,22 @@ winget install k6
 
 ```powershell
 .\run-test.ps1
+```
+
+## Reports
+
+### Generate HTML_Report
+
+```powershell
+.\create-html-report.ps1
+```
+
+This will generate `report.html` and open it in your browser.
+
+### Generate JSON data
+
+```powershell
+k6 run scripts/login.js --out json=results.json
 ```
 
 ## Structure
