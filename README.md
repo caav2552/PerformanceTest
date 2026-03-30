@@ -1,6 +1,18 @@
-# PerformanceTest
+# Performance Test
 
-Performance Test with k6
+Load test using k6
+
+## Note
+
+The exercise mentioned `/auth/login`, but that endpoint is not available in FakeRestAPI.
+
+So I used `/api/v1/Activities` to run the test.
+
+The requirements are still covered:
+
+- ~20 TPS
+- response time < 1.5s
+- error rate < 3%
 
 ## Installation
 
@@ -15,18 +27,34 @@ winget install k6
 .\run-test.ps1
 ```
 
+## Reports
+
+### Generate HTML_Report
+
+```powershell
+.\create-html-report.ps1
+```
+
+This will generate `report.html` and open it in your browser.
+
+### Generate JSON data
+
+```powershell
+k6 run scripts/login.js --out json=results.json
+```
+
 ## Structure
 
 ```text
 ├── scripts/
-│   └── login.js          # Test script
+│   └── login.js           # main test
 ├── data/
-│   └── users.csv         # Test data
+│   └── users.csv         # data
 ├── config/
-│   └── options.js        # Test configuration
+│   └── options.js        # config
 ├── utils/
-│   └── helpers.js        # Helper functions
-├── load-env.ps1          # Load variables
-├── run-test.ps1          # Run tests
+│   └── helpers.js        # helpers
+├── load-env.ps1          # env
+├── run-test.ps1          # run
 ├── README.md             # Documentation
 └── conclusions.txt       # Test results

@@ -1,0 +1,33 @@
+EXERCISE 2 - LOAD TEST SUMMARY
+
+Target: 30 TPS
+Duration: 60s
+Threshold: p95 < 1500ms, Error Rate < 3%
+
+RESULTS
+-------
+Actual TPS: 28.83
+Average response time: ~251ms
+p95: 281ms
+Error rate: 0%
+
+ANALYSIS
+--------
+The system was able to handle close to 30 requests per second.
+
+Response time stayed stable and well below the limit.
+No errors were observed during the test.
+
+VUs vs Throughput:
+As load increases, more VUs are needed to keep the throughput.
+At 30 TPS, the system behaves well and remains stable.
+
+From previous tests, after around 40 TPS, adding more VUs does not help.
+Dropped iterations start to increase, which shows the system limit.
+
+CONCLUSION
+----------
+At 30 TPS the system works correctly with stable response time and no errors.
+
+There is a relationship between VUs and throughput up to a certain point.
+After that point, the system cannot handle more load and performance starts to degrade.

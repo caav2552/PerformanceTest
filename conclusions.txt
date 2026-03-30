@@ -1,0 +1,39 @@
+LOAD TEST CONCLUSIONS
+======================
+
+Date: March 30, 2026
+Endpoint: https://fakerestapi.azurewebsites.net/api/v1/Activities
+Duration: 60s per scenario
+
+RESULTS
+-------
+TPS | Actual TPS | p95 (ms) | Errors | Dropped (%) | Status
+----|------------|----------|--------|-------------|--------
+20  | 19.21      | 388      | 0%     | 1.7%        | PASS
+30  | 28.83      | 281      | 0%     | 2.0%        | PASS
+40  | 36.29      | 301      | 0%     | 8.1%        | WARNING
+50  | 36.13      | 634      | 0%     | 35.8%       | FAIL
+60  | 38.04      | 270      | 0%     | 54.6%       | FAIL
+
+Performance starts to degrade after 40 TPS.
+
+SUMMARY
+-------
+The system works well up to around 35–40 TPS.
+
+At 40 TPS, the first issues appear with more dropped iterations.
+At higher load (50+ TPS), the system cannot keep the expected throughput and becomes unstable.
+
+ADDITIONAL NOTES
+----------------
+- Response time stayed below 1.5s in all tests
+- Error rate was always 0%
+- Throughput decreases after 40 TPS
+- Results look stable until ~40 TPS
+- After that, performance starts to drop
+
+NEXT STEPS
+----------
+- Use around 30–35 TPS as safe limit
+- Monitor the system when close to 40 TPS
+- Increase VUs and test again to confirm limits
