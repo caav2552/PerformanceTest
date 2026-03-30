@@ -27,5 +27,5 @@ export default function () {
     'response time OK': (r) => r.timings.duration < config.RESPONSE_TIME_P95,
   });
 
-  sleep(1); // think time between requests
+  sleep(1); 
 }
