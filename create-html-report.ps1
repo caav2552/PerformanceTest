@@ -1,4 +1,4 @@
-Write-Host "Generating HTML report..." -ForegroundColor Green
+Write-Host "Creating HTML report..." -ForegroundColor Green
 
 $html = @"
 <!DOCTYPE html>
@@ -86,13 +86,13 @@ $html = @"
         </div>
 
         <h2>Conclusion</h2>
-        <p>The system successfully met all performance requirements:</p>
+        <p>The system behaved well during the test.</p>
         <ul>
-            <li>Achieved 96% of target TPS (19.27 vs 20)</li>
-            <li>Response times well below threshold (319ms vs 1500ms limit)</li>
-            <li>Zero errors during entire test execution</li>
-            <li>All validation checks passed (100%)</li>
+            <li>TPS was close to the target</li>
+            <li>Response time stayed within limits</li>
+            <li>No errors</li>
         </ul>
+        <p>Looks stable for this level of load.</p>
     </div>
 </body>
 </html>
